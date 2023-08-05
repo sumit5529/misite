@@ -1,0 +1,45 @@
+{% extends 'food/base.html' %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        
+    </head>
+    <body>
+         
+        {% comment %} <h1> This is just a template </h1> {% endcomment %}
+     {% block body %}
+        {% for item in item_list %}
+       
+        <div class = "row">
+            <div class = "col-md-5 offset-md-2">
+                <img class = "card" height = "150px"  width = "200px" src = "{{item.item_image}}">
+            </div>
+            <div class = "col-md-3">
+                <h3>{{item.item_name}}</h3>
+                <h5>{{item.item_desc}}</h5>
+                <h6> ${{item.item_price}}</h6>
+                <h6>{{item.user_name}}</h6>
+            </div>
+            <div class = "col-md-2">
+            <a href = "{% url 'food:detail' item.id%}" class = "btn btn-success"> details </a>
+            </div>
+        </div>
+        {% endfor %}
+    {% endblock %}
+    <ul>
+        <li> <a href = "{% url 'food:detail' item.id%}">{{item.id}}---{{item.item_name}} </a> </li>
+        {% comment %} <li> <a href = "/food/{{item.id}}">{{item.id}}---{{item.item_name}} </a> </li> {% endcomment %}
+    </ul> 
+        <script src="" async defer></script>
+    </body>
+</html>

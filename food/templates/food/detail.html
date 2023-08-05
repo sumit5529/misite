@@ -1,0 +1,35 @@
+{% extends 'food/base.html'%}
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    {% block body %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img height="300px" src="{{object.item_image}}" />
+        </div>
+        <div class="col-md-6">
+
+          {% comment %} <h1>{{item.item_name}}</h1>
+          <h1>{{item.item_desc}}</h1>
+          <h1>${{item.item_price}}</h1> {% endcomment %}
+          {% comment %} above for function based call and below for class based call {% endcomment %}
+          <h1>{{object.item_name}}</h1>
+          <h1>{{object.item_desc}}</h1>
+          <h1>${{object.item_price}}</h1>
+          <a href="{% url 'food:delete_item' item.id %}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+        </div>
+      </div>
+    </div>
+    {% endblock %} 
+  </body>
+</html>
